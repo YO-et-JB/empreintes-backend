@@ -1,8 +1,6 @@
 # Empreintes & Digitales
 Jean-Yves CAMUS, Éditeur-Photographe-Auteur
 
-Test
-
 ## process.env
 ```
 SERVER_PORT=
