@@ -14,10 +14,10 @@ const config = {
   db: {
     client: "pg",
     connection: {
-      port: process.env.DB_DATABASE_PORT,
-      password: process.env.DB_PASSWORD,
       user: process.env.DB_USER,
       database: process.env.DB_DATABASE,
+      databaseport: process.env.DB_DATABASE_PORT,
+      password: process.env.DB_PASSWORD,
     },
     migrations: {
       directory: "./src/db/migrations",
