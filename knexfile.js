@@ -1,3 +1,4 @@
-import config from "./src/config.js";
+/* eslint-disable linebreak-style */
+import config from "./src/config.js"
 
-export default config.db;
+export default config.db

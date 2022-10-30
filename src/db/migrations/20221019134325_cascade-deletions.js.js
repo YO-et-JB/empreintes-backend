@@ -12,7 +12,7 @@ export const up = async (knex) => {
 }
 
 export const down = async (knex) => {
-  await knex.schema.alterTable("pictures", (table) => {
+  await knex.schema.alterTable("photographs", (table) => {
     table.dropForeign(["userId"])
     table
       .integer("userId")

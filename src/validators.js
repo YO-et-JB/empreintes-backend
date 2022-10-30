@@ -15,7 +15,7 @@ export const validateOffset = yup.number().min(0).integer()
 //validate users
 export const validateId = yup.number().integer().min(1).label("User ID")
 
-export const validateName = yup
+export const validateFirstName = yup
   .string()
   .min(2)
   .max(15)
@@ -24,7 +24,18 @@ export const validateName = yup
     "name must contain only letters, numbers, '.' and '_'"
   )
   .trim()
-  .label("Name")
+  .label("Firstname")
+
+export const validateLastName = yup
+  .string()
+  .min(2)
+  .max(15)
+  .matches(
+    /^[a-z][a-z0-9._]*/,
+    "name must contain only letters, numbers, '.' and '_'"
+  )
+  .trim()
+  .label("Lastname")
 
 export const validateEmail = yup.string().email().trim().label("E-mail")
 
@@ -35,9 +46,9 @@ export const validatePhoneNumber = yup
   .max(20)
   .matches(/(\+33\ )[1-9]{1}[0-9 ]{2}[0-9 ]{2}[0-9]{2}[0-9]{2}/, {
     message: "Invalid number",
-    excludeEmptyString: false,
+    excludeEmptyString: false
   })
-  .required("A phone number is required")
+  .label("Phone number")
 
 export const validatePassword = yup
   .string()
@@ -82,11 +93,11 @@ export const validateMedias = yup.object().shape({
       "format",
       "upload file",
       (value) => !value || (value && SUPPORTED_FORMATS.includes(value.type))
-    ),
+    )
 })
 
 //validate texts
 export const validateContent = yup.string().min(1).label("Content")
 
 export const validateTitle = validateContent.label("Title")
-export const validateCommentContent = validateContent.label("Topic")
+export const validateTopic = validateContent.label("Topic")

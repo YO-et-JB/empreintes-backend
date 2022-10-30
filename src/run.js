@@ -4,6 +4,10 @@ import knex from "knex"
 import config from "./config.js"
 import { Model } from "objection"
 import handleErrors from "./middlewares/handleErrors.js"
+import makePhotographsRoutes from "./routes/makePhotographsRoutes.js"
+import makeBooksRoutes from "./routes/makeBooksRoutes.js"
+import makeSessionRoutes from "./routes/makeSessionRoutes.js"
+import makeUploadRoutes from "./routes/makeUploadRoutes.js"
 import makeUsersRoutes from "./routes/makeUsersRoutes.js"
 
 const app = express()
@@ -17,22 +21,17 @@ app.use((req, res, next) => {
   req.locals = {
     params: req.params,
     query: req.query,
-    body: req.body,
+    body: req.body
   }
 
   next()
 })
 
-app.get("/products/:productId", (req, res) =>
-  res.send(`Product #${req.params.productId}`)
-)
-app.get("/categories/:categoryId/products/:productId", (req, res) =>
-  res.send(
-    `Category #${req.params.categoryId} Product #${req.params.productId}`
-  )
-)
-
 makeUsersRoutes({ app })
+makeUploadRoutes({ app })
+makeSessionRoutes({ app, db })
+makeBooksRoutes({ app, db })
+makePhotographsRoutes({ app, db })
 
 app.use(handleErrors)
 

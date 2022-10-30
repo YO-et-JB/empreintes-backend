@@ -10,7 +10,7 @@ module.exports = {
   },
   rules: {
     indent: "off",
-    "linebreak-style": ["error", "windows", "Unix"],
+    "linebreak-style": ["error", "unix"],
     quotes: [
       "error",
       "double",
