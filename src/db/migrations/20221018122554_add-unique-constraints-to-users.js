@@ -7,6 +7,7 @@ export const up = async (knex) => {
 
 export const down = async (knex) => {
   await knex.schema.alterTable("users", (table) => {
-    table.dropUnique(["email", "phoneNumber"])
+    table.dropUnique("email")
+    table.dropUnique("phoneNumber")
   })
 }

@@ -66,7 +66,7 @@ export const up = async (knex) => {
   })
 }
 export const down = async (knex) => {
-  await knex.schema.dropTable("rel_medias_photgraphs")
+  await knex.schema.dropTable("rel_medias_photographs")
   await knex.schema.dropTable("rel_medias_books")
   await knex.schema.dropTable("rel_photographs_tags")
   await knex.schema.dropTable("rel_books_tags")

@@ -1,0 +1,8 @@
+npx nodemon index.js
+npm run dev
+
+npx knex migrate:latest
+npx knex migrate:rollback
+npx knex migrate:make initial-schema.js
+
+Ne pas oublier de remplacer ADMIN par READER dans le schema add_user_roles.
